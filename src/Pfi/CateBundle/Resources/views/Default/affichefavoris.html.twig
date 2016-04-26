@@ -1,0 +1,32 @@
+
+{% extends 'PfiCateBundle::layout.html.twig' %}
+
+{% block title %}Mes Favoris{% endblock %}
+
+{% block content %}
+    <h3> <td><a href="{{ path('myapp_film_lister', { 'id': fav.id }) }}">{{ 'Accueil'|trans }}</a></td><br></h3>
+
+    <td>NomFilm:{{ fav.nom }}</td><br>
+    <td>description{{ fav.resume }}</td><br>
+    <td> date_sortie{{ fav.info.date|date("Y-m-d") }}</td><br>
+
+    {% for i in images %}
+        <table <table border ="1">
+        <tr> <img src="{{ asset('bundles/pficate/images/')~i.url }}" alt="" width="128" height="128" /></tr>
+
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

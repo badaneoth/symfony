@@ -1,0 +1,47 @@
+
+{% extends 'PfiCateBundle::layout.html.twig' %}
+
+{% block title %}Mes commentaires{% endblock %}
+
+{% block content %}
+
+
+    <h3> <td><a href="{{ path('myapp_film_lister', { 'id': films.id }) }}">{{ 'Accueil'|trans }}</a></td><br></h3>
+
+
+    <td>NomFilm :     {{ films.nom }}</td><br>
+    <td>description : {{ films.resume }}</td><br>
+    <td> date_sortie : {{ films.info.date|date("Y-m-d") }}</td><br>
+
+    {% for i in images %}
+        <table <table border ="1">
+        <tr> <img src="{{ asset('bundles/pficate/images/')~i.url }}" alt="" width="128" height="128" /></tr>
+
+    {% endfor %}
+
+
+
+
+
+
+
+    {% for a in comm %}
+
+
+<table>
+
+
+    <td><a href="{{ path('myapp_film_commenter', { 'id': a.id }) }}">{{ 'AddComm'|trans }}</a></td>
+
+  <tr>  <td> {{ a.comment }}</td><br></tr>
+    <td><a href="{{ path('myapp_comm_supprimer', { 'id': a.id }) }}">{{ 'supprimer'|trans }}</a></td>
+
+</table>
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}

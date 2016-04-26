@@ -1,0 +1,18 @@
+<p>{{ '' | trans({'%nombre%': acteurs|length }) }}</p>
+
+<table>
+    {% for a in acteurs %}
+    <tr>
+        <td>{{ a.nom }}</td>
+        <td>{{ a.resume }}</td>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <td><a href="{{ path('myapp_acteur_modifier', { 'id': a.id }) }}">{{ 'modifier'|trans }}</a></td>
+            <td><a href="{{ path('myapp_acteur_supprimer', { 'id': a.id }) }}">{{ 'supprimer'|trans }}</a></td>
+        {% endif %}
+        {% else %}
+    <tr>
+        <td>{{ 'aucun film'|trans }}</td>
+    </tr>
+    {% endfor %}
+</table>

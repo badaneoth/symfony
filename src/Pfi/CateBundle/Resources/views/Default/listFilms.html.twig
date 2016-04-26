@@ -1,0 +1,20 @@
+
+{% extends 'PfiCateBundle::layout.html.twig' %}
+
+{% block title %}Liste des films{% endblock %}
+
+
+
+
+        </tr>
+        {% for a in films %}
+            <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.nom }}</td>
+                <td>{{ a.resume }}</td>
+            </tr>
+
+
+
+
+{% endblock %}

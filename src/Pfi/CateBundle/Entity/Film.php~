@@ -1,0 +1,186 @@
+<?php
+
+namespace Pfi\CateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Film
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Film
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=30)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prix", type="decimal")
+     */
+    private $prix;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="acteur", type="string", length=40)
+     */
+    private $acteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="realisateur", type="string", length=40)
+     */
+    private $realisateur;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="Pfi\CateBundle\Entity\Media", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $image;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Film
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param string $prix
+     * @return Film
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return string 
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+
+
+    /**
+     * Set acteur
+     *
+     * @param string $acteur
+     * @return Film
+     */
+    public function setActeur($acteur)
+    {
+        $this->acteur = $acteur;
+
+        return $this;
+    }
+
+    /**
+     * Get acteur
+     *
+     * @return string 
+     */
+    public function getActeur()
+    {
+        return $this->acteur;
+    }
+
+    /**
+     * Set realisateur
+     *
+     * @param string $realisateur
+     * @return Film
+     */
+    public function setRealisateur($realisateur)
+    {
+        $this->realisateur = $realisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get realisateur
+     *
+     * @return string 
+     */
+    public function getRealisateur()
+    {
+        return $this->realisateur;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Pfi\CateBundle\Entity\Media $image
+     * @return Produits
+     */
+    public function setImage(\Pfi\CateBundle\Entity\Media $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Pfi\CateBundle\Entity\Media
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+}

@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+
+
+
+<html>
+<head>
+    <title>{% block title %}Filmothèque{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{{ asset('bundles/pficate/css/main.css') }}" type="text/css" media="all" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+
+<body>
+
+
+
+</div>
+<div id="page">
+    <div id="header">
+        <img src="{{ asset('bundles/pficate/images/cc.png') }}" alt="Filmothèque" width="128" height="128" />
+        <ul id="menu">
+
+
+        </ul>
+
+    <div id="content">
+        <h1>{{ block('title') }}</h1>
+        {% block content %}
+
+
+        {% endblock %}
+    </div>
+    <div id="footer">
+        <p>{{ 'copyright'|trans }} © by OthNour 2015</p>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock%}

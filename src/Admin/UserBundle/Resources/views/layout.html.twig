@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+    <div class="container">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'connecté en tant que admin'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'Déconnexion'|trans({}, 'FOSUserBundle') }}
+            </a>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">{{ ''|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }} alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
+    </body>
+    </html>
+{% endblock %}

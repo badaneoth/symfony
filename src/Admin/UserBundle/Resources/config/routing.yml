@@ -1,0 +1,7 @@
+admin_film_ajouter:
+    path:     /admin/formFilm
+    defaults: { _controller: PfiCateBundle:Default:formFilm }
+
+admin_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AdminUserBundle:Default:index }

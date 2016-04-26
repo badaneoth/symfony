@@ -1,0 +1,37 @@
+
+{% block title %}Liste des Films{% endblock %}
+
+        {% block content %}
+
+
+    {% for a in films %}
+
+
+<br>
+<br>
+<br>
+        <td>NomFilm : {{ a.nom }}</td><br>
+        <td>description : {{ a.resume }}</td><br>
+        <td> date_sortie : {{ a.info.date|date("Y-m-d") }}</td><br>
+
+        <td><a href="{{ path('myapp_film_favoris', { 'id': a.id }) }}">Ajouter à vos favoris</a></td><br>
+        <td><a href="{{ path('myapp_film_commenter', {'id':a.id }) }}">Ajouter un commentaire</a></td><br>
+
+
+
+
+    {% else %}
+        <tr>
+            <td>Aucun film n'a été trouvé.</td>
+        </tr>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+    {% endblock %}

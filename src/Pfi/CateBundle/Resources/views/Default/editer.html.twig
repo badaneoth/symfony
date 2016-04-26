@@ -1,0 +1,22 @@
+% extends 'PfiCateBundle::layout.html.twig' %}
+
+{% block title %}
+    {% if films.id %}
+        {{ 'films.modifier'|trans({'%titre%':films.titre}) }}
+    {% else %}
+        {{ 'films.ajouter'|trans }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+    <form action="" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input type="submit" />
+    </form>
+    <p><a href="{{ path('myapp_film_lister') }}">{{ 'film.liste.retour'|trans }}</a></p>
+
+{% endblock %}

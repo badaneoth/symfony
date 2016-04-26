@@ -1,0 +1,43 @@
+
+{% extends 'PfiCateBundle::layout.html.twig' %}
+
+{% block title %}Liste des Films{% endblock %}
+
+{% block content %}
+
+
+
+    <td><a href="{{ path('myapp_film_lister', { 'id': films.id-1 }) }}">precedent</a></td><br>
+
+    <td><a href="{{ path('myapp_film_lister', { 'id': films.id+1 }) }}">Suivant</a></td><br>
+
+        <br>
+        <br>
+        <br>
+        <td>NomFilm :     {{ films.nom }}</td><br>
+        <td>description : {{ films.resume }}</td><br>
+        <td> date_sortie : {{ films.info.date|date("Y-m-d") }}</td><br>
+
+
+
+                {% for i in images %}
+                    <table <table border ="1">
+                <tr> <img src="{{ asset('bundles/pficate/images/')~i.url }}" alt="" width="128" height="128" /></tr>
+
+                {% endfor %}
+    <td><a href="{{ path('myapp_film_favoris', { 'id': films.id }) }}">Ajouter a Vos favoris</a></td><br>
+
+
+    <td><a href="{{ path('myapp_film_lister', { 'id': films.id-1 }) }}">precedent</a></td><br>
+
+    <td><a href="{{ path('myapp_film_lister', { 'id': films.id+1 }) }}">Suivant</a></td><br>
+    <td><a href="{{ path('myapp_film_commenter', {'id':films.id }) }}">Ajouter un commentaire</a></td><br>
+    <td><a href="{{ path('myapp_acteur_rechercher', {'id':films.id }) }}">Recherche Acteur</a></td><br>
+    <td><a href="{{ path('myapp_film_rechercher', {'id':films.id }) }}">Recherche Film</a></td><br>
+
+    </tr>
+
+    </table>
+
+
+{% endblock %}

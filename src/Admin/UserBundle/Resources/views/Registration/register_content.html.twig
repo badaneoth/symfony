@@ -1,0 +1,36 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+  <label>Adresse email </label>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> </span>
+{{ form_widget(form.email, { 'attr':{'class':'form-control', 'placeholder': 'Adress mail' }}) }}
+
+    </div>
+    <label>Nom d'utilisateur </label>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> </span>
+        {{ form_widget(form.username, { 'attr':{'class':'form-control', 'placeholder': 'Nom d\'utilisateur ' }}) }}
+
+    </div>
+    <label>Mot de passe </label>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> </span>
+        {{ form_widget(form.plainPassword.first, { 'attr':{'class':'form-control', 'placeholder': 'mot de passe' }}) }}
+
+    </div>
+    <label>Retaper le mot de passe </label>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i> </span>
+        {{ form_widget(form.plainPassword.second, { 'attr':{'class':'form-control', 'placeholder': 'retaper le mot de passe' }}) }}
+
+    </div>
+
+    {{ form_widget(form) }}
+    <div>
+        <input class="btn btn-block btn-success" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</form>
